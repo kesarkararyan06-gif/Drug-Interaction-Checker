@@ -2,6 +2,9 @@ Project Title
 
 Drug Interaction Checker with Graph-Based Conflict Detection
 
+Deployed link: drug-interaction-checkergit-fcajbg3co6q2sau8yzvmar.streamlit.app
+Demo video: https://drive.google.com/file/d/1nckD_cEFyZoki-L4pGuo__5lWj-zNgxk/view?usp=drive_link
+
 One-line project description:
 An offline, graph-based Drug Interaction Checker that detects medication conflicts, categorizes severity levels, and visualizes risks to enhance prescription safety.
 
@@ -286,3 +289,15 @@ Reduces risk of adverse drug reactions
 Supports small clinics and rural healthcare
 Improves clinical confidence
 Promotes structured medical decision support
+
+
+Team name - Codecrew
+Team members:
+Nitya Patel - Frontend Developer & UI/UX Designer
+Designed a responsive UI and dashboard, integrated APIs with vanilla JS, and implemented interactive, color-coded graph visualizations for drug interactions.
+Shreya Singh - Data Engineer, Research & QA
+Curated and cleaned verified drug interaction datasets, structured the JSON database, tested system accuracy, validated APIs, and handled project documentation.
+Aryan Kesarkar - Backend & Core Logic Developer
+Built the Flask backend with REST APIs, interaction detection logic, severity/risk scoring, and drug-interaction graph generation using a local offline database.
+
+
