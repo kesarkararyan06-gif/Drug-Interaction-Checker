@@ -1,304 +1,364 @@
-Project Title
+# 🩺 Drug Interaction Checker with Graph-Based Conflict Detection
 
-Drug Interaction Checker with Graph-Based Conflict Detection
+## 👥 Team Name
+**Codecrew**
 
-Deployed link: drug-interaction-checkergit-fcajbg3co6q2sau8yzvmar.streamlit.app
+---
 
-Demo video: https://drive.google.com/file/d/1nckD_cEFyZoki-L4pGuo__5lWj-zNgxk/view?usp=drive_link
+## 🔗 Live Links
 
-One-line project description:
-An offline, graph-based Drug Interaction Checker that detects medication conflicts, categorizes severity levels, and visualizes risks to enhance prescription safety.
+- **Deployed App:**  
+  https://drug-interaction-checkergit-fcajbg3co6q2sau8yzvmar.streamlit.app  
 
-1. Problem Statement
-Problem Title
+- **Demo Video:**  
+  https://drive.google.com/file/d/1nckD_cEFyZoki-L4pGuo__5lWj-zNgxk/view  
 
-Polypharmacy Drug Interaction Risk Detection
+---
 
-Problem Description
+## 📌 One-Line Project Description
 
-Patients, especially elderly individuals and those with chronic illnesses, often consume multiple medications simultaneously. Polypharmacy increases the risk of drug–drug interactions, contraindications, dosage conflicts, and adverse drug reactions. While large hospital systems may include advanced interaction checking tools, smaller clinics and individual practitioners often lack lightweight, structured, and offline-accessible systems for quick medication conflict evaluation.
+An **offline, graph-based Drug Interaction Checker** that detects medication conflicts, categorizes severity levels, calculates risk scores, and visualizes drug interactions to enhance prescription safety.
 
-Manual reference checking is time-consuming, fragmented, and prone to human error, which can compromise patient safety.
+---
 
-Target Users
-General Physicians
-Small Clinics
-Rural Healthcare Providers
-Pharmacists
-Medical Students
-Telemedicine Practitioners
+# 1️⃣ Problem Statement
 
-Existing Gaps
-Lack of lightweight offline solutions
-Fragmented manual checking methods
-Limited visualization of interaction severity
-No structured graph-based conflict representation
-Reduced accessibility in low-connectivity environments
+## 🏷 Problem Title
+**Polypharmacy Drug Interaction Risk Detection**
 
-2. Problem Understanding & Approach
-Root Cause Analysis
-Polypharmacy leads to exponential pairwise drug interaction possibilities.
+## 📖 Problem Description
 
-Manual cross-referencing is inefficient.
-Many tools require internet access or paid subscriptions.
-Lack of visual and severity-based risk interpretation.
+Patients—especially elderly individuals and those with chronic illnesses—often consume multiple medications simultaneously. This practice, known as **polypharmacy**, significantly increases the risk of:
 
-Solution Strategy
-Use a structured local drug interaction dataset.
-Implement graph-based pairwise interaction detection.
-Categorize interactions by severity level.
-Visualize medication conflicts as a graph network.
-Ensure complete offline functionality.
+- Drug–Drug Interactions  
+- Contraindications  
+- Dosage Conflicts  
+- Adverse Drug Reactions  
 
-3. Proposed Solution
-Solution Overview
-MediGraph is an offline Drug Interaction Checker that analyzes a list of medications, detects conflicts using structured pairwise matching, categorizes severity levels, and visually represents drug interactions using graph modeling.
+While large hospital systems may include advanced interaction-checking tools, smaller clinics and rural healthcare providers often lack lightweight, structured, and offline-accessible systems for quick medication conflict evaluation.
 
-Core Idea
-Model drugs as nodes and interactions as edges in a graph. Use rule-based logic to detect conflicts and classify severity.
+Manual reference checking is time-consuming, fragmented, and prone to human error, compromising patient safety.
 
-Key Features
-Drug–Drug Interaction Detection
-Contraindication Identification
-Dosage Conflict Flagging
-Severity Categorization (Mild / Moderate / Severe / Contraindicated)
-Graph-Based Visualization
-Offline Operation
-Risk Score Generation
-Clear Clinical Explanation Output
+---
 
-4. System Architecture
-High-Level Flow
+## 🎯 Target Users
 
-User → Frontend → Backend API → Interaction Engine → Local Drug Database → Graph Generator → Response
+- General Physicians  
+- Small Clinics  
+- Rural Healthcare Providers  
+- Pharmacists  
+- Medical Students  
+- Telemedicine Practitioners  
 
-Architecture Description
+---
 
-User inputs medication list.
-Frontend sends request to backend API.
-Backend validates input.
-Interaction Engine generates pairwise combinations.
-Local JSON database is queried.
-Conflicts are categorized by severity.
-Graph model is generated.
-Structured response is returned to frontend.
-Results are displayed in table + graph format.
+## 🚫 Existing Gaps
 
-5. Database Design
-ER Diagram
+- Lack of lightweight offline solutions  
+- Fragmented manual checking methods  
+- Limited visualization of interaction severity  
+- No structured graph-based conflict representation  
+- Reduced accessibility in low-connectivity environments  
 
-ER Diagram Description
+---
 
-Entities:
+# 2️⃣ Problem Understanding & Approach
 
-Drug
-Drug_ID
-Drug_Name
-Max_Dosage
-Category
-Interaction
+## 🔍 Root Cause Analysis
 
-Interaction_ID
-Drug1_ID
-Drug2_ID
-Severity
-Description
+- Polypharmacy leads to exponential pairwise drug interaction possibilities  
+- Manual cross-referencing is inefficient and error-prone  
+- Many tools require internet access or paid subscriptions  
+- Lack of visual and severity-based risk interpretation  
 
-Relationship:
-Many-to-Many between Drug and Drug via Interaction
+## 💡 Solution Strategy
 
-6. Dataset Selected
-Dataset Name
+- Use a structured local drug interaction dataset  
+- Implement graph-based pairwise interaction detection  
+- Categorize interactions by severity level  
+- Visualize medication conflicts as a graph network  
+- Ensure complete offline functionality  
 
-Structured Drug Interaction Dataset (Custom Curated)
+---
 
-Source
-DrugBank
-PubChem
-U.S. Food and Drug Administration
-World Health Organization
+# 3️⃣ Proposed Solution
 
-Data Type
-JSON structured dataset
-Drug metadata
-Pairwise interaction records
-Severity classification
+## 🧠 Solution Overview
 
-Selection Reason
-Publicly accessible references
-Credible medical sources
-Suitable for offline structured modeling
-Supports graph-based logic
+**MediGraph** is an offline Drug Interaction Checker that:
 
-Preprocessing Steps
-Standardized drug names
-Removed duplicates
-Normalized severity levels
-Converted dataset to JSON format
-Indexed drugs for constant-time lookup
+- Analyzes a list of medications  
+- Detects conflicts using structured pairwise matching  
+- Categorizes severity levels  
+- Visually represents drug interactions using graph modeling  
 
-7. Model Selected
-Model Name
-Graph-Based Rule Engine (Deterministic Pairwise Conflict Detection)
+## 🔗 Core Idea
 
-Selection Reasoning
-Efficient for polypharmacy pair generation
-Deterministic and interpretable
-Suitable for offline implementation
-Low computational complexity
+- **Drugs → Nodes**
+- **Interactions → Edges**
+- Rule-based logic detects conflicts and classifies severity
 
-Alternatives Considered
-Machine Learning-based DDI prediction models
-Knowledge graph embeddings
-Deep learning interaction predictors
+## ⭐ Key Features
 
-Evaluation Metrics
-Conflict Detection Accuracy
-Severity Classification Accuracy
-Response Time
-Graph Completeness
+- Drug–Drug Interaction Detection  
+- Contraindication Identification  
+- Dosage Conflict Flagging  
+- Severity Categorization (Mild / Moderate / Severe / Contraindicated)  
+- Graph-Based Visualization  
+- Offline Operation  
+- Risk Score Generation  
+- Clear Clinical Explanation Output  
 
-8. Technology Stack
-Frontend
-HTML
-CSS
-JavaScript
-Backend
-Python
-Flask
-ML/AI
-Graph modeling using NetworkX
-Database
-Local JSON Database
-Deployment
-Render (optional)
-Offline local hosting supported
+---
 
-9. API Documentation & Testing
-API Endpoints List
-Endpoint 1: Check Interactions
+# 4️⃣ System Architecture
 
-POST /check
-Input:
+## 🔄 High-Level Flow
 
+User → Frontend → Backend API → Interaction Engine
+→ Local Drug Database → Graph Generator → Response
+
+
+## 🏗 Architecture Description
+
+1. User inputs medication list  
+2. Frontend sends request to backend API  
+3. Backend validates input  
+4. Interaction engine generates pairwise combinations  
+5. Local JSON database is queried  
+6. Conflicts are categorized by severity  
+7. Graph model is generated  
+8. Structured response is returned  
+9. Results are displayed in table and graph format  
+
+---
+
+# 5️⃣ Database Design
+
+## 🗂 ER Diagram Description
+
+### 📌 Entities
+
+### Drug
+- Drug_ID  
+- Drug_Name  
+- Max_Dosage  
+- Category  
+
+### Interaction
+- Interaction_ID  
+- Drug1_ID  
+- Drug2_ID  
+- Severity  
+- Description  
+
+### 🔁 Relationship
+
+- Many-to-Many relationship between Drug entities via Interaction  
+
+---
+
+# 6️⃣ Dataset Selected
+
+## 📚 Dataset Name
+**Structured Drug Interaction Dataset (Custom Curated)**
+
+## 🌍 Sources
+- DrugBank  
+- PubChem  
+- U.S. Food and Drug Administration (FDA)  
+- World Health Organization (WHO)  
+
+## 📦 Data Type
+- JSON structured dataset  
+- Drug metadata  
+- Pairwise interaction records  
+- Severity classification  
+
+## ✅ Selection Reason
+- Publicly accessible references  
+- Credible medical sources  
+- Suitable for offline structured modeling  
+- Supports graph-based logic  
+
+## ⚙ Preprocessing Steps
+- Standardized drug names  
+- Removed duplicates  
+- Normalized severity levels  
+- Converted dataset to JSON format  
+- Indexed drugs for constant-time lookup  
+
+---
+
+# 7️⃣ Model Selected
+
+## 🧩 Model Name
+**Graph-Based Rule Engine (Deterministic Pairwise Conflict Detection)**
+
+## 📌 Selection Reasoning
+- Efficient for polypharmacy pair generation  
+- Deterministic and interpretable  
+- Suitable for offline implementation  
+- Low computational complexity  
+
+## 🔄 Alternatives Considered
+- Machine Learning-based DDI prediction models  
+- Knowledge graph embeddings  
+- Deep learning interaction predictors  
+
+## 📊 Evaluation Metrics
+- Conflict Detection Accuracy  
+- Severity Classification Accuracy  
+- Response Time  
+- Graph Completeness  
+
+---
+
+# 8️⃣ Technology Stack
+
+## 🎨 Frontend
+- HTML  
+- CSS  
+- JavaScript  
+
+## 🖥 Backend
+- Python  
+- Flask  
+
+## 📈 Graph Modeling
+- NetworkX  
+
+## 🗄 Database
+- Local JSON Database  
+
+## 🚀 Deployment
+- Streamlit / Render  
+- Offline local hosting supported  
+
+---
+
+# 9️⃣ API Documentation
+
+## 📌 Endpoint 1: Check Interactions
+
+**POST /check**
+
+### Input
+```json
 {
   "drugs": ["Warfarin", "Aspirin", "Metformin"]
 }
-
-Output:
-
+```
+Output
+```
 {
   "conflicts": [...],
   "risk_score": 75
 }
-Endpoint 2: Get Drug List
+```
+## 📌 API Endpoints
 
-GET /drugs
+### Endpoint 2: Get Drug List
+**GET /drugs**
 
-Endpoint 3: Get Graph Data
-GET /graph
-API Testing Screenshots
-(Add Postman / Thunder Client screenshots here)
+---
 
-10. Module-wise Development & Deliverables
+### Endpoint 3: Get Graph Data
+**GET /graph**
 
-Checkpoint 1: Research & Planning
-Deliverables:
-Problem research
-Dataset collection
-Architecture design
+---
 
-Checkpoint 2: Backend Development
-Deliverables:
-API creation
-Interaction logic
-Pairwise detection engine
+## 🔟 Module-wise Development
 
-Checkpoint 3: Frontend Development
-Deliverables:
+### ✅ Checkpoint 1: Research & Planning
+- Problem research  
+- Dataset collection  
+- Architecture design  
 
-Input form
-Results dashboard
-Graph display
+### ✅ Checkpoint 2: Backend Development
+- API creation  
+- Interaction logic  
+- Pairwise detection engine  
 
-Checkpoint 4: Model Training
-Deliverables:
-Rule-based engine validation
-Severity mapping
+### ✅ Checkpoint 3: Frontend Development
+- Input form  
+- Results dashboard  
+- Graph display  
 
-Checkpoint 5: Model Integration
-Deliverables:
-Backend–Frontend integration
-Graph rendering
+### ✅ Checkpoint 4: Model Validation
+- Rule-based engine validation  
+- Severity mapping  
 
-Checkpoint 6: Deployment
-Deliverables:
-Hosted demo
-GitHub repository
+### ✅ Checkpoint 5: Integration
+- Backend–Frontend integration  
+- Graph rendering  
 
-11. End-to-End Workflow
-User enters medication list.
-Input is validated.
-Pairwise combinations generated.
-Interaction database queried.
-Conflicts categorized.
-Graph model built.
-Risk score calculated.
-Response returned and displayed.
+### ✅ Checkpoint 6: Deployment
+- Hosted demo  
+- GitHub repository  
 
-12. Demo & Video
-Live Demo Link: (Add here)
-Demo Video Link: (Add here)
-GitHub Repository: (Add here)
+---
 
-13. Hackathon Deliverables Summary
-Offline Drug Interaction Checker
-Graph-based visualization
-Structured JSON drug database
-API documentation
-Working demo
-GitHub repository
+## 🔁 End-to-End Workflow
+1. User enters medication list  
+2. Input is validated  
+3. Pairwise combinations are generated  
+4. Interaction database is queried  
+5. Conflicts are categorized  
+6. Graph model is built  
+7. Risk score is calculated  
+8. Response is returned and displayed  
 
-14. Team Roles & Responsibilities
-Member Name	Role	Responsibilities
-Your Name	Backend & Architecture	Interaction logic, API, database design
-Member 2	Frontend	UI development, visualization
-Member 3	Data & Research	Dataset curation, validation
+---
 
-15. Future Scope & Scalability
-Short-Term
-Expand drug database
-Add dosage adjustment recommendations
-Export PDF reports
-Long-Term
-Integrate real clinical APIs
-Machine learning-based DDI prediction
-EMR system integration
-Multi-language support
-Mobile application
+## 📦 Hackathon Deliverables
+- Offline Drug Interaction Checker  
+- Graph-based visualization  
+- Structured JSON drug database  
+- API documentation  
+- Working demo  
+- GitHub repository  
 
-16. Known Limitations
-Prototype-level dataset
-Not clinically validated
-Limited drug coverage
-Rule-based detection only
-Does not replace medical consultation
+---
 
-17. Impact
-Enhances medication safety
-Reduces risk of adverse drug reactions
-Supports small clinics and rural healthcare
-Improves clinical confidence
-Promotes structured medical decision support
+## 👨‍💻 Team Roles & Responsibilities
 
+| Name | Role | Responsibilities |
+|------|------|------------------|
+| **Nitya Patel** | Frontend Developer & UI/UX Designer | Responsive UI, dashboard design, API integration, interactive color-coded graph 
+| **Aryan Kesarkar** | Backend & Core Logic Developer | Flask backend, REST APIs, interaction logic, severity & risk scoring, graph generation |visualizations |
+| **Shreya Singh** | Data Engineer, Research & QA | Dataset curation, JSON structuring, testing, validation, documentation |
 
-Team name - Codecrew
-Team members:
-Nitya Patel - Frontend Developer & UI/UX Designer
-Designed a responsive UI and dashboard, integrated APIs with vanilla JS, and implemented interactive, color-coded graph visualizations for drug interactions.
-Shreya Singh - Data Engineer, Research & QA
-Curated and cleaned verified drug interaction datasets, structured the JSON database, tested system accuracy, validated APIs, and handled project documentation.
-Aryan Kesarkar - Backend & Core Logic Developer
-Built the Flask backend with REST APIs, interaction detection logic, severity/risk scoring, and drug-interaction graph generation using a local offline database.
+---
 
+## 🚀 Future Scope & Scalability
 
+### 🔹 Short-Term
+- Expand drug database  
+- Add dosage adjustment recommendations  
+- Export PDF reports  
+
+### 🔹 Long-Term
+- Integrate real clinical APIs  
+- Machine learning-based DDI prediction  
+- EMR system integration  
+- Multi-language support  
+- Mobile application  
+
+---
+
+## ⚠ Known Limitations
+- Prototype-level dataset  
+- Not clinically validated  
+- Limited drug coverage  
+- Rule-based detection only  
+- Does not replace professional medical consultation  
+
+---
+
+## 🌍 Impact
+- Enhances medication safety  
+- Reduces risk of adverse drug reactions  
+- Supports small clinics and rural healthcare  
+- Improves clinical confidence  
+- Promotes structured medical decision support  
